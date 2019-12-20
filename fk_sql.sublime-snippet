@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[foreign key(${1:}) references ($1)
+]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>fk</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in -->
+    <scope>source.sql</scope>
+    <!-- Optional: Description to show in the menu -->
+    <description>Create Foreign Key</description>
+</snippet>
