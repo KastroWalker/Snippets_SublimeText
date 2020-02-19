@@ -67,7 +67,7 @@ class $1Control {
 		try {
 			\$data->execute();
 			\$_SESSION['editado'] = true;
-			echo "cadastrado";
+			echo "editado";
 		} catch (PDOException \$ex) {
 			echo "Erro ao Editar: ".\$ex->getMessage();
 			$_SESSION['nao_editado'] = true;
@@ -86,7 +86,7 @@ class $1Control {
         try {
             \$data->execute();
             \$_SESSION['deletado'] = true;
-			echo "cadastrado";
+			echo "deletado";
         } catch (PDOException \$ex) {
             echo "Erro ao apagar: " . \$ex->getMessage();
             \$_SESSION['nao_deletado'] = true;
