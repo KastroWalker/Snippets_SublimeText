@@ -2,7 +2,7 @@
 
 Snippets para facilitar o desenvolvimento no sublime text 3 
 
-# INSTALAÇÂO
+# INSTALAÇÃO
 
 Feche o Sublime Text e faça o download ou clone este repositório para um diretório chamado **Snippets** no diretório Sublime Text Packages da sua plataforma:
 
