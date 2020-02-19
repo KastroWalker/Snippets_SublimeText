@@ -74,7 +74,7 @@ class $1Control {
 		}
 	} 
 
-	function Delete(){
+	function Delete($id){
 		\$this->data->setId(\$id);
 
 		\$sql = "DELETE FROM table_name WHERE id = :id";
