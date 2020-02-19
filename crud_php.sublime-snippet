@@ -14,7 +14,7 @@ class $1Control {
 
 	function __construct(){
 		\$this->data = new $1Model();
-		\$this->data = new Conexao();
+		\$this->connection = new Conexao();
 	}
 
 	function Create(\$example){
@@ -28,8 +28,11 @@ class $1Control {
 
 		try {
 			\$data->execute();
-		} catch (PDOException \$e) {
+			\$_SESSION['cadastrado'] = true;
+			echo "cadastrado";
+		} catch (PDOException \$ex) {
 			echo "Erro ao Cadastrar: ".\$ex->getMessage();
+			\$_SESSION['nao_cadastrado'] = true;
 		}
 	}
 	
@@ -62,8 +65,11 @@ class $1Control {
 
 		try {
 			\$data->execute();
-		} catch (PDOException \$e) {
+			\$_SESSION['editado'] = true;
+			echo "cadastrado";
+		} catch (PDOException \$ex) {
 			echo "Erro ao Editar: ".\$ex->getMessage();
+			$_SESSION['nao_editado'] = true;
 		}
 	} 
 
@@ -78,8 +84,11 @@ class $1Control {
 
         try {
             \$data->execute();
+            \$_SESSION['deletado'] = true;
+			echo "cadastrado";
         } catch (PDOException \$ex) {
             echo "Erro ao apagar: " . \$ex->getMessage();
+            \$_SESSION['nao_deletado'] = true;
         }
 	}
 }
