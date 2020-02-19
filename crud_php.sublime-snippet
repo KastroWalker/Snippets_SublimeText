@@ -37,13 +37,14 @@ class $1Control {
 	}
 	
 	function Read(\$id){
-		\$this->data->getId(\$id);
+		\$this->data->setId(\$id);
 
 		\$sql = "SELECT * FROM table_name WHERE id = :id";
 		\$d = \$this->connection->connect();
 
 		\$data = \$d->prepare(\$sql);
 		\$data->bindValue(":id", \$this->data->getId());
+		
         try {
 	        \$data->execute();
 	        return \$data;
