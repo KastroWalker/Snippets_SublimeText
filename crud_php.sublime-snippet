@@ -1,0 +1,93 @@
+<!-- 
+	Configure as Variaveis e os diretorios de Acordo com o seu projeto
+	Configure the Variables and directories according to your project
+ -->
+<snippet>
+    <content><![CDATA[
+session_start();
+include "../DB/Conexao.php";
+include "../Model/${1:}Model.php";
+
+class $1Control {
+	private \$data;
+	private \$connection;
+
+	function __construct(){
+		\$this->data = new $1Model();
+		\$this->data = new Conexao();
+	}
+
+	function Create(\$example){
+		\$this->data->setExample($example);
+
+		\$sql = "INSERT INTO table_name (example) VALUES (:example)";
+		\$d = \$this->connection->connect();
+		
+		\$data = \$d->prepare(\$sql);
+		\$data->bindValue(":example", \$this->data->getExample());
+
+		try {
+			\$data->execute();
+		} catch (PDOException \$e) {
+			echo "Erro ao Cadastrar: ".\$ex->getMessage();
+		}
+	}
+	
+	function Read(\$id){
+		\$this->data->getId(\$id);
+
+		\$sql = "SELECT * FROM table_name WHERE id = :id";
+		\$d = \$this->connection->connect();
+
+		\$data = \$d->prepare(\$sql);
+		\$data->bindValue(":id", \$this->data->getId());
+        try {
+	        \$data->execute();
+	        return \$data;
+        } catch (Exception \$ex) {
+        	echo "Erro ao Carregar: ".\$ex->getMessage(); 
+        }
+	}
+
+	function Update(\$id, \$example){
+		\$this->data->setId($id);
+		\$this->data->setExample($example);
+
+		\$sql = "UPDATE table_name SET example = :example WHERE id = :id";
+		\$d = \$this->connection->connect();
+		
+		\$data = \$d->prepare($sql);
+		\$data->bindValue(":id", \$this->data->getId());
+		\$data->bindValue(":example", \$this->data->getExample());
+
+		try {
+			\$data->execute();
+		} catch (PDOException \$e) {
+			echo "Erro ao Editar: ".\$ex->getMessage();
+		}
+	} 
+
+	function Delete(){
+		\$this->data->setId(\$id);
+
+		\$sql = "DELETE FROM table_name WHERE id = :id";
+        \$d = \$this->connection->connect();
+
+        \$data = \$d->prepare(\$sql);
+        \$data->bindValue(":id", \$this->data->getId());
+
+        try {
+            \$data->execute();
+        } catch (PDOException \$ex) {
+            echo "Erro ao apagar: " . \$ex->getMessage();
+        }
+	}
+}
+]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>crud</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in -->
+    <scope>source.php</scope>
+    <!-- Optional: Description to show in the menu -->
+    <description>Create CRUD PHP</description>
+</snippet>

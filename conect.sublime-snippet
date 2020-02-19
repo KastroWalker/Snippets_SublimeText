@@ -1,0 +1,28 @@
+<!-- 
+	Configure o hostname e database de acordo com o seu projeto
+	Configure the hostname and database according to your project
+-->
+<snippet>
+    <content><![CDATA[class Conexao {
+	private \$con;
+	private \$opcoes = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+	function __construct() {
+		try {
+			\$this->con = new PDO("mysql:hostname=hostname; dbname=databasename", "username", "password", \$this->opcoes);
+		} catch (PDOException \$e) {
+			echo "Não foi possivel conectar ".\$e;
+		}
+	}
+
+	function Connect(){
+		return \$this->con;
+	}
+}
+]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>connect</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in -->
+    <scope>source.php</scope>
+    <!-- Optional: Description to show in the menu -->
+    <description>Create Connection PDO PHP</description>
+</snippet>
