@@ -19,5 +19,5 @@ fk - Para criar uma Foreign Key
 
 Abra o seu código PHP e digite;
 
-crud - Para criar um CRUD
+crud - Para criar um crud; <br>
 connect - Para criar uma conexao PDO
