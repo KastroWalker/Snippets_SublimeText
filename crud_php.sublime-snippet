@@ -44,9 +44,9 @@ class $1Control {
 
 		\$data = \$d->prepare(\$sql);
 		\$data->bindValue(":id", \$this->data->getId());
-		
+
         try {
-	        \$data->execute();
+	        \$data->execute($sql);
 	        return \$data;
         } catch (Exception \$ex) {
         	echo "Erro ao Carregar: ".\$ex->getMessage(); 
