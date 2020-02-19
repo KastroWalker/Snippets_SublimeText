@@ -65,7 +65,7 @@ class $1Control {
 		\$data->bindValue(":example", \$this->data->getExample());
 
 		try {
-			\$data->execute();
+			\$data->execute($sql);
 			\$_SESSION['editado'] = true;
 			echo "editado";
 		} catch (PDOException \$ex) {
