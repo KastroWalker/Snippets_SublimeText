@@ -70,7 +70,7 @@ class $1Control {
 			echo "editado";
 		} catch (PDOException \$ex) {
 			echo "Erro ao Editar: ".\$ex->getMessage();
-			$_SESSION['nao_editado'] = true;
+			\$_SESSION['nao_editado'] = true;
 		}
 	} 
 
